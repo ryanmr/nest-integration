@@ -1,0 +1,13 @@
+FROM node:16-alpine As development
+
+WORKDIR /app
+
+COPY package.json yarn.lock ./
+
+RUN yarn
+
+COPY . .
+
+CMD ["yarn", "start:dev"]
+
+

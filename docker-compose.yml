@@ -1,0 +1,27 @@
+services:
+
+  db:
+    image: postgres:13-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: public
+
+  app:
+    container_name: app
+    build:
+      dockerfile: local.Dockerfile
+      context: .
+    restart: always
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      DB_HOST: db
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: public
+    ports:
+      - 5610:3000
+    depends_on: [db]
