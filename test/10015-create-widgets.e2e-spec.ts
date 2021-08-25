@@ -15,10 +15,6 @@ describe('10015 Create Widgets', () => {
     entityManager = app.get(EntityManager);
   });
 
-  beforeEach(async () => {
-    entityManager.query('TRUNCATE widgets;');
-  });
-
   afterAll(async () => {
     await app.close();
   });

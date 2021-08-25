@@ -14,10 +14,6 @@ describe('10000 Basic Init', () => {
     entityManager = app.get(EntityManager);
   });
 
-  beforeEach(async () => {
-    entityManager.query('TRUNCATE widgets;');
-  });
-
   afterAll(async () => {
     await app.close();
   });

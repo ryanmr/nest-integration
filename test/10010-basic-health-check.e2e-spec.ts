@@ -14,10 +14,6 @@ describe('10010 Basic Health Check', () => {
     entityManager = app.get(EntityManager);
   });
 
-  beforeEach(async () => {
-    entityManager.query('TRUNCATE widgets;');
-  });
-
   afterAll(async () => {
     await app.close();
   });

@@ -37,7 +37,7 @@ describe('10016 Read Widgets', () => {
       { name: 'w-3', size: 0 },
     ];
 
-    sample.forEach((newWidget) => repo.save(newWidget));
+    await Promise.all(sample.map((newWidget) => repo.save(newWidget)));
 
     const result = await request(app.getHttpServer())
       .get('/widgets')
