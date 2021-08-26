@@ -34,12 +34,15 @@ describe('10015 Create Widgets', () => {
       expect.objectContaining({ name: "bob's widgets", size: 1337 }),
     );
 
+    // get data from the database
+    // to verify that the controllers/services
+    // did what was expected
     const data = await entityManager.query(
       'SELECT * FROM widgets w WHERE w.id = $1',
       [result.body.id],
     );
-    console.log(data);
 
+    // assert
     expect(data).toEqual(
       expect.arrayContaining([
         expect.objectContaining({ name: "bob's widgets" }),

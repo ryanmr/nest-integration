@@ -10,8 +10,6 @@ class CustomSequencer extends Sequencer {
       testA.path > testB.path ? 1 : -1,
     );
 
-    // sortedTests.forEach((test) => console.log(test.path));
-
     return sortedTests;
   }
 }
